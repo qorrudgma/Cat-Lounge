@@ -43,7 +43,7 @@ header {
 }
 
 .header-buttons button:hover {
-    background-color: #ffcccc; /* 버튼에 마우스 오버 시 색상 변경 */
+    background-color: #fcc6c6; /* 버튼에 마우스 오버 시 색상 변경 */
 }
 
 h1, h2, p {
