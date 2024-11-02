@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="social-links">
-            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://section.blog.naver.com" target="_blank"><i class="fa-solid fa-blog"></i></a>
             <a href="https://section.cafe.naver.com" target="_blank"><i class="fa-solid fa-mug-saucer"></i></a>
@@ -19,10 +19,45 @@
             <button onclick="showLogin()">로그인</button> <!-- 로그인 버튼 -->
             <button onclick="showSignup()">회원가입</button> <!-- 회원가입 버튼 -->
         </div>
+        <div class="header-serchInput">
+            <input type="text" id="searchInput" placeholder="검색어 입력" />
+            <button onclick="handleSearch()">검색</button>
+        </div>
     </header>
- 
-    <main id="app"> <!-- SPA 콘텐츠가 렌더링될 곳 -->
     
+    <section class="banner">
+        <div class="logo">
+            <img src="고양이.png" alt="고양이 사랑방 로고" width="180" height="150">
+        </div>
+        <div class="catlounge">
+            <h1>고양이 사랑방</h1>
+        </div>
+        <div class="spacing1"></div>
+    </section>
+
+    <section class="manus">
+        <div class="spacing2"></div>
+        <div class="manus-catlaunge">
+            <b>고양이 사랑방</b>
+        </div>
+        <div class="manus-adoption">
+            <b>고양이 분양</b>
+        </div>
+        <div class="manus-foster">
+            <b>임시보호 서비스</b>
+        </div>
+        <div class="manus-community">
+            <b>커뮤니티</b>
+        </div>
+        <div class="manus-announcements">
+            <b>공지사항</b>
+        </div>
+        <div class="spacing3"></div>
+    </section>
+
+
+    <main id="app"> <!-- SPA 콘텐츠가 렌더링될 곳 -->
+        
     </main>
 
     <footer>
