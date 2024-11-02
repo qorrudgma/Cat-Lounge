@@ -1,9 +1,20 @@
+// 브라우저의 뒤로 가기 버튼 클릭 처리
+window.onpopstate = function(event) {
+    if (event.state) {
+        if (event.state.page === 'login') {
+            showLogin();
+        } else if (event.state.page === 'signup') {
+            showSignup();
+        } else {
+            showHome();
+        }
+    }
+};
+
 // 페이지 콘텐츠 정의
 const pages = {
     home: `
         <section>
-            <h2>환영합니다!</h2>
-            <p>고양이 분양 및 임시 보호 서비스를 제공합니다.</p>
         </section>
     `,
     login: `
@@ -82,15 +93,14 @@ function handleSignup(event) {
 // 페이지 로딩 시 기본 페이지로 설정
 showHome();
 
-// 브라우저의 뒤로 가기 버튼 클릭 처리
-window.onpopstate = function(event) {
-    if (event.state) {
-        if (event.state.page === 'login') {
-            showLogin();
-        } else if (event.state.page === 'signup') {
-            showSignup();
-        } else {
-            showHome();
-        }
+function handleSearch() {
+    const searchTerm = document.getElementById('searchInput').value;
+    
+    if (searchTerm) {
+        alert(`'${searchTerm}'을(를) 검색합니다.`);
+        // 여기서 실제 검색 기능을 구현할 수 있습니다.
+    } else {
+        alert('검색어를 입력해주세요.');
     }
-};
+}
+
