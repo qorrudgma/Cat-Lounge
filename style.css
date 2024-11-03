@@ -1,81 +1,85 @@
-/* 중앙 정렬 스타일 */
+.text, p, h1{
+    cursor: default;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    text-align: center; /* 텍스트 가운데 정렬 */
-    height: 100vh; /* 세로 중앙 정렬을 위한 높이 설정 */
+    text-align: center;
+    height: 100vh;
     margin: 0;
 }
 
 header {
     display: flex;
-    justify-content: space-between; /* 왼쪽과 오른쪽 정렬을 위한 공간 배분 */
+    justify-content: space-between;
     align-items: center;
     background-color: firebrick;
     width: 80%;
-    height: 5vh;
-    color: white; /* 글자 색상 흰색으로 변경 */
-    padding: 0 10%; /* 왼쪽 및 오른쪽 여백 추가 */
+    height: 100px;
+    color: white;
+    padding: 10px 10%;
 }
 
 .social-links {
-    display: flex; /* 소셜 링크를 수평으로 배치 */
-    white-space: nowrap; /* 줄바꿈 방지 */
+    display: flex;
+    white-space: nowrap;
     flex:5;
 }
 
 .social-links a {
-    color: white; /* 소셜 링크 아이콘 색상 */
-    margin-right: 10px; /* 소셜 링크 사이 간격 */
-    text-decoration: none; /* 링크 밑줄 제거 */
-    font-size: 1.5em; /* 아이콘 크기 조절 */
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
 }
 
 .header-buttons{
     display: flex;
-    white-space: nowrap; /* 줄바꿈 방지 */
+    white-space: nowrap;
     flex:1;
 }
 
 .header-serchInput{
     display: flex;
     align-items: center;
-    white-space: nowrap; /* 줄바꿈 방지 */
+    white-space: nowrap;
     flex:1;
 }
 
 .header-buttons button, .header-serchInput button {
-    background-color: white; /* 버튼 배경색 */
-    color: firebrick; /* 버튼 글자색 */
-    border: none; /* 기본 테두리 제거 */
-    padding: 6px 10px; /* 패딩 설정 */
-    margin: 0 3px; /* 여백 설정 */
-    border-radius: 10px; /* 모서리 둥글게 */
-    cursor: pointer; /* 마우스 포인터 변경 */
-    font-weight: bold; /* 글자 굵게 설정 */
+    background-color: white;
+    color: firebrick;
+    border: none;
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .header-serchInput input {
     margin-left: 0;
     height: 25px;
-    border-radius: 5px; /* 모서리 둥글게 */
-    border: none; /* 기본 테두리 제거 */
+    border-radius: 5px;
+    border: none;
     color: black;
 }
 
 .header-buttons button:hover, .header-serchInput button:hover {
-    background-color: #fcc6c6; /* 버튼에 마우스 오버 시 색상 변경 */
+    background-color: #fcc6c6;
 }
 
 .banner {
     display: flex;
-    justify-content: space-between; /* 왼쪽과 오른쪽 정렬을 위한 공간 배분 */
+    justify-content: space-between;
     align-items: left;
     width: 80%;
     height: 20vh;
-    color: #ffaa9d; /* 글자 색상 흰색으로 변경 */
+    color: #ffaa9d;
 }
 
 .logo {
@@ -86,12 +90,18 @@ header {
     flex: 4;
 }
 
-.spacing1 {
+.banner .spacing {
     flex: 2;
 }
 
 .catlounge h1 {
     font-size: 4rem;
+    cursor: pointer;
+}
+
+.catlounge a {
+    text-decoration: none;
+    color: #ffaa9d;
 }
 
 .logo{
@@ -101,56 +111,83 @@ header {
 
 .manus {
     display: flex;
-    justify-content: space-between; /* 왼쪽과 오른쪽 정렬을 위한 공간 배분 */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     color: #ffaa9d;
-    position: sticky; /* 스크롤 시 고정 */
-    top: 0; /* 상단에서 고정될 위치 */
-    z-index: 1000; /* 다른 요소 위에 오도록 설정 */
-    position: relative; /* 드롭다운 위치 설정을 위해 상대적으로 설정 */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.spacing2, .spacing3{
+.manus .spacing {
     flex: 1;
     height: 21px;
 }
 
-.manus-catlaunge, .manus-foster, .manus-community, .manus-announcements{
+.manus-catlaunge, .manus-adoption, .manus-foster, .manus-community, .manus-announcements {
     flex: 1.2;
-}
+    position: relative;
+    cursor: pointer;
 
-.manus-adoption {
-    flex: 1.2;
-    position: relative; /* 드롭다운 위치 설정을 위해 상대적으로 설정 */  
 }
 
 .manus > div {
-    border-top: 1px solid #d1d1d1; /* 얇은 회색 선 추가 */
-    border-bottom: 1px solid #d1d1d1; /* 얇은 회색 선 추가 */
-    border-left: 1px solid #d1d1d1; /* 얇은 회색 선 추가 */
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
     background-color: #ffffff;
-    padding: 10px 0; /* 상하 여백 추가 */
+    padding: 10px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.manus > div {
-    border-top: 1px solid #d1d1d1; /* 얇은 회색 선 추가 */
-    border-bottom: 1px solid #d1d1d1; /* 얇은 회색 선 추가 */
-    border-left: 1px solid #d1d1d1; /* 얇은 회색 선 추가 */
-    background-color: #ffffff;
-    padding: 10px 0; /* 상하 여백 추가 */
-    transition: background-color 0.3s ease; /* 배경색 변화 효과 추가 */
-}
-
-.manus-catlaunge:hover, .manus-foster:hover, .manus-community:hover, .manus-announcements:hover, .manus-adoption:hover {
-    background-color: #f8d7da; /* 마우스를 올리면 배경색 변경 */
-    color: #d57b6e; /* 마우스를 올리면 글자색 변경 */
-}
-
-.manus-catlaunge:hover, .manus-foster:hover, .manus-community:hover, .manus-announcements:hover{
+.manus-catlaunge:hover, .manus-adoption:hover, .manus-foster:hover, .manus-community:hover, .manus-announcements:hover {
+    background-color: #f8d7da;
     color: #d57b6e;
 }
 
-.manus-adoption:hover {
+.manus-catlaunge .catlaunge-dropdown,
+.manus-adoption .adoption-dropdown,
+.manus-foster .foster-dropdown {
+    display: none;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    z-index: 1000;
+}
+
+.manus-catlaunge:hover .catlaunge-dropdown,
+.manus-adoption:hover .adoption-dropdown,
+.manus-foster:hover .foster-dropdown {
+    display: block;
+}
+
+.manus-catlaunge .catlaunge-dropdown a,
+.manus-adoption .adoption-dropdown a,
+.manus-foster .foster-dropdown a {
+    display: block;
+    padding: 5px 10px;
+    color: #ffaa9d;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.manus-catlaunge .catlaunge-dropdown a:hover,
+.manus-adoption .adoption-dropdown a:hover,
+.manus-foster .foster-dropdown a:hover {
+    background-color: #ffaa9d2b;
+    color: #d57b6e;
+}
+
+
+.manus-adoption .adoption-dropdown a:hover, .manus-catlaunge .catlounge-dropdown a:hover {
+    background-color: #ffaa9d2b;
+    color: #d57b6e;
+}
+
+.manus-catlaunge:hover, .manus-adoption:hover, .manus-foster:hover, .manus-community:hover, .manus-announcements:hover{
     color: #d57b6e;
 }
