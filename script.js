@@ -1,22 +1,13 @@
-// 브라우저의 뒤로 가기 버튼 클릭 처리
-window.onpopstate = function(event) {
-    if (event.state) {
-        if (event.state.page === 'login') {
-            showLogin();
-        } else if (event.state.page === 'signup') {
-            showSignup();
-        } else {
-            showHome();
-        }
-    }
-};
-
-// 페이지 콘텐츠 정의
 const pages = {
     home: `
-        <section>
+        <section class="image-slider">
+            <div class="image-container" id="image-container">
+                <img src="image1.png" alt="image">
+                <img src="image2.png" alt="image">
+                <img src="image3.png" alt="image">
+            </div>
         </section>
-    `,
+    `, 
     login: `
         <section>
             <h2>로그인</h2>
@@ -49,48 +40,37 @@ const pages = {
     `,
 };
 
-// 홈 페이지 표시
 function showHome() {
     document.getElementById('app').innerHTML = pages.home;
-    // 브라우저 히스토리에 홈 페이지 추가
-    history.pushState({ page: 'home' }, '고양이 사랑방', window.location.href);
+    history.pushState({ page: 'home' }, '홈', window.location.href);
 }
 
-// 로그인 페이지 표시
 function showLogin() {
     document.getElementById('app').innerHTML = pages.login;
-    // 브라우저 히스토리에 로그인 페이지 추가
     history.pushState({ page: 'login' }, '로그인', window.location.href);
 }
-// 회원가입 페이지 표시
+
 function showSignup() {
     document.getElementById('app').innerHTML = pages.signup;
     history.pushState({ page: 'signup' }, '회원가입', window.location.href);
 }
 
-// 로그인 폼 제출 처리
 function handleLogin(event) {
-    event.preventDefault(); // 기본 제출 동작 방지
+    event.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-
-    // 여기서 실제 로그인 처리 로직을 구현할 수 있습니다.
     alert(`로그인 성공! 사용자 이름: ${username}`);
-    showHome(); // 로그인 후 홈으로 돌아가기
+    showHome();
 }
 
-// 회원가입 폼 제출 처리
 function handleSignup(event) {
-    event.preventDefault(); // 기본 제출 동작 방지
+    event.preventDefault(); 
     const newUsername = document.getElementById('newUsername').value;
     const newPassword = document.getElementById('newPassword').value;
-
-    // 여기서 실제 회원가입 처리 로직을 구현할 수 있습니다.
     alert(`회원가입 성공! 사용자 이름: ${newUsername}`);
-    showHome(); // 회원가입 후 홈으로 돌아가기
+    showHome();
 }
 
-// 페이지 로딩 시 기본 페이지로 설정
 showHome();
 
 function handleSearch() {
@@ -98,7 +78,6 @@ function handleSearch() {
     
     if (searchTerm) {
         alert(`'${searchTerm}'을(를) 검색합니다.`);
-        // 여기서 실제 검색 기능을 구현할 수 있습니다.
     } else {
         alert('검색어를 입력해주세요.');
     }
