@@ -21,30 +21,62 @@
         </div>
         <div class="header-serchInput">
             <input type="text" id="searchInput" placeholder="검색어 입력" />
-            <button onclick="handleSearch()">검색</button>
+            <button onclick="handleSearch()">검색</button> <!-- 검색 버튼 -->
         </div>
     </header>
     
     <section class="banner">
         <div class="logo">
-            <img src="고양이.png" alt="고양이 사랑방 로고" width="180" height="150">
+            <a href="#" onclick="showHome()">
+                <img src="고양이.png" alt="고양이 사랑방 로고" width="180" height="150">
+            </a>
         </div>
         <div class="catlounge">
-            <h1>고양이 사랑방</h1>
+            <a href="#" onclick="showHome()">
+                <h1>고양이 사랑방</h1>
+            </a>
         </div>
-        <div class="spacing1"></div>
+        <div class="spacing"></div>
     </section>
 
     <section class="manus">
-        <div class="spacing2"></div>
+        <div class="spacing"></div>
         <div class="manus-catlaunge">
             <b>고양이 사랑방</b>
+                <div class="catlaunge-dropdown">
+                    <b>
+                        <a href="#">소개</a>
+                        <a href="#">분양 절차</a>
+                    </b>
+                </div>
         </div>
         <div class="manus-adoption">
             <b>고양이 분양</b>
+                <div class="adoption-dropdown">
+                    <b>
+                        <a href="#">먼치킨</a>
+                        <a href="#">스코티쉬폴드</a>
+                        <a href="#">브리티쉬숏헤어</a>
+                        <a href="#">아비시니안</a>
+                        <a href="#">아메리칸숏헤어</a>
+                        <a href="#">렉돌</a>
+                        <a href="#">노르웨이숲</a>
+                        <a href="#">페르시안</a>
+                        <a href="#">레이상블루/샴</a>
+                        <a href="#">뱅갈</a>
+                        <a href="#">메인쿤</a>
+                        <a href="#">특수묘</a>
+                    </b>
+                </div>
         </div>
         <div class="manus-foster">
             <b>임시보호 서비스</b>
+            <div class="foster-dropdown">
+                <b>
+                    <a href="#">서비스 및 시설</a>
+                    <a href="#">예약</a>
+                </b>
+            </div>
         </div>
         <div class="manus-community">
             <b>커뮤니티</b>
@@ -52,12 +84,10 @@
         <div class="manus-announcements">
             <b>공지사항</b>
         </div>
-        <div class="spacing3"></div>
+        <div class="spacing"></div>
     </section>
 
-
-    <main id="app"> <!-- SPA 콘텐츠가 렌더링될 곳 -->
-        
+    <main id="app"> <!-- 이부분이 화면이 계속 바뀌는 부분 -->
     </main>
 
     <footer>
