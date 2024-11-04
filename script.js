@@ -2,9 +2,9 @@ const pages = {
     home: `
         <section class="image-slider">
             <div class="image-container" id="image-container">
-                <img src="image1.png" alt="image">
-                <img src="image2.png" alt="image">
-                <img src="image3.png" alt="image">
+                <img src="image1.png" alt="image" class="slider-image">
+                <img src="image2.png" alt="image" class="slider-image" style="display: none;">
+                <img src="image3.png" alt="image" class="slider-image" style="display: none;">
             </div>
         </section>
     `, 
@@ -18,9 +18,9 @@ const pages = {
                 <label for="password">비밀번호:</label>
                 <input type="password" id="password" required>
                 <br>
-                <button type="submit">로그인</button>
+                <button class="btn1" type="submit">로그인</button>
             </form>
-            <button onclick="showHome()">홈으로</button>
+            <button class="btn1" onclick="showHome()">홈으로</button>
         </section>
     `,
     signup: `
@@ -43,6 +43,19 @@ const pages = {
 function showHome() {
     document.getElementById('app').innerHTML = pages.home;
     history.pushState({ page: 'home' }, '홈', window.location.href);
+    startImageSlider();
+}
+
+function startImageSlider() {
+    const images = document.querySelectorAll('.slider-image');
+    let currentIndex = 0;
+
+    setInterval(() => {
+        images[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        images[currentIndex].style.display = 'block';
+    }, 5000);
 }
 
 function showLogin() {
