@@ -7,6 +7,12 @@ const pages = {
                 <img src="image3.png" alt="image" class="slider-image" style="display: none;">
             </div>
         </section>
+        <section class="main-adoption">
+            <div class="line"></div>
+            <div class="adoption">
+                분양
+            </div>
+        </section>
     `, 
     login: `
         <section>
