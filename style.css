@@ -30,7 +30,7 @@ header {
 }
 
 .social-links a {
-    color: white;
+    color: rgb(0, 0, 0);
     margin-right: 10px;
     text-decoration: none;
     font-size: 1.5em;
@@ -207,29 +207,48 @@ header {
     color: #d57b6e;
 }
 
+#app {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
 .image-slider {
-    padding-top: 15px;
+    display: flex;
+    padding: 50px;
+    width: 100%;
+    max-width: 90%;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-image {
+    display: flex;
     width: 100%;
     border-radius: 35px;
+
 }
 
 footer {
+    max-width: 100%;
     width: 100%;
 }
 
 .footer-service { 
     display: flex;
+    width: 90%;
+    justify-content: space-between;
     flex-direction: row;
     padding-left: 10%;
     border-top: solid 1px #d1d1d1;
     border-bottom: solid 1px #d1d1d1;
 }
 
-.footer-button {
-    padding-right: 550px;
+.footer-buttons {
+    display: flex;
+    flex: 3;
+    position: relative;
 }
 
 .button-gray {
@@ -242,7 +261,7 @@ footer {
 .footer-links {
     display: flex;
     white-space: nowrap;
-    flex:4;
+    flex:1;
 }
 
 .footer-links a {
@@ -259,10 +278,10 @@ footer {
 .button-gray:not(:last-child)::after {
     content: "";
     position: absolute;
-    right: -5px;
-    top: 50%;
+    right: 0;
+    top: 55%;
     width: 1px;
-    height: 50%;
+    height: 40%;
     background-color: #9f9f9f;
     transform: translateY(-50%);
 }
@@ -282,4 +301,17 @@ footer {
     font-size: 13px;
     text-align: left;
     line-height: 30px;
+}
+
+.main-adoption {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line {
+    padding-top: 100px;
+    width: 90%;
+    border-bottom: solid 1px #d1d1d1;
 }
