@@ -303,15 +303,111 @@ footer {
     line-height: 30px;
 }
 
-.main-adoption {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-}
-
 .line {
     padding-top: 100px;
     width: 90%;
+    margin: 0 auto;
     border-bottom: solid 1px #d1d1d1;
+}
+
+.main-adoption, .main-stories, .main-foster {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.main-adoption .adoption, .main-stories .stories, .main-foster .foster-text {
+    display: flex;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10%;
+    font-size: 50px;
+    font-weight: bold;
+    color: #ffaa9d;
+    
+}
+
+.main-foster .foster-video {
+    display: flex;
+    padding: 50px;
+    width: 100%;
+    max-width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 80%;
+    margin: 50px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-section h2 {
+    font-size: 2.5rem;
+    color: #ffaa9d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-section label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.login-section input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    transition: border 0.3s ease;
+}
+
+.login-section input:focus {
+    border-color: #ffaa9d;
+    outline: none;
+}
+
+.login-section button {
+    background-color: #ffaa9d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.login-section button:hover {
+    background-color: #f8d7da;
+    color: #d57b6e;
+}
+
+.btn1 {
+    background-color: #ffaa9d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-section .btn1:hover {
+    background-color: #f8d7da;
+    color: #d57b6e;
 }
