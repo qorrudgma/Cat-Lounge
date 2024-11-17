@@ -13,9 +13,24 @@ const pages = {
                 분양
             </div>
         </section>
+        <section class="main-stories ">
+            <div class="line"></div>
+            <div class="stories ">
+                분양 후기
+            </div>
+        </section>
+        <section class="main-foster">
+            <div class="line"></div>
+            <div class="foster-text">
+                임시보호 서비스
+            </div>
+            <div class="foster-video">
+                 <img src="video.png" alt="video">
+            </div>
+        </section>
     `, 
     login: `
-        <section>
+       <section class="login-section">
             <h2>로그인</h2>
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <label for="username">사용자 이름:</label>
@@ -44,6 +59,7 @@ const pages = {
         <button onclick="showHome()">홈으로</button>
     </section>
     `,
+
 };
 
 function showHome() {
