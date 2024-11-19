@@ -336,37 +336,46 @@ footer {
     justify-content: center;
 }
 
-
-.login-section {
+.login-section, .signup-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 20px;
-    width: 80%;
-    margin: 50px auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.login-section h2 {
-    font-size: 2.5rem;
-    color: #ffaa9d;
-    margin-bottom: 20px;
     text-align: center;
 }
 
-.login-section label {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 5px;
+.login-section h2, .signup-section h2 {
+    font-size: 2.5rem;
+    color: #ffaa9d;
+    margin-bottom: 20px;
 }
 
-.login-section input {
+.form-group {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    padding: 10px;
     margin: 10px 0;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    color: #333;
+    flex: 1;
+    width: 200px;
+    text-align: right;
+}
+
+.form-group input {
+    flex: 2;
+    padding: 10px;
     border: 1px solid #d1d1d1;
     border-radius: 10px;
     font-size: 1rem;
@@ -374,32 +383,22 @@ footer {
     transition: border 0.3s ease;
 }
 
-.login-section input:focus {
+.form-group input:focus {
     border-color: #ffaa9d;
     outline: none;
 }
 
-.login-section button {
-    background-color: #ffaa9d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+.button-group {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
     margin-top: 20px;
-}
-
-.login-section button:hover {
-    background-color: #f8d7da;
-    color: #d57b6e;
 }
 
 .btn1 {
     background-color: #ffaa9d;
     color: white;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
     border: none;
@@ -407,7 +406,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-.login-section .btn1:hover {
+.btn1:hover {
     background-color: #f8d7da;
     color: #d57b6e;
 }
