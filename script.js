@@ -33,18 +33,22 @@ const pages = {
         <section class="login-section">
             <h2>로그인</h2>
             <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label for="username">아이디:</label>
-                    <input type="text" id="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">비밀번호:</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div class="button-group">
-                    <button class="btn1" type="submit">로그인</button>
-                    <button class="btn1" type="button" onclick="showHome()">홈으로</button>
-                </div>
+                <table>
+                    <tr id="tabletr-id">
+                        <th><label for="id">아이디:</label></th>
+                        <td><input type="text" id="id" class="input-field" required></td>
+                    </tr>
+                    <tr class="tabletr-pw">
+                        <th><label for="password">비밀번호:</label></th>
+                        <td><input type="password" id="password" class="input-field" required></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td colspan="3" class="button-group">
+                            <button class="btn1" type="submit">로그인</button>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </section>
     `,
@@ -52,22 +56,52 @@ const pages = {
         <section class="signup-section">
             <h2>회원가입</h2>
             <form id="signupForm" onsubmit="handleSignup(event)">
-                <div class="form-group">
-                    <label for="username">아이디:</label>
-                    <input type="text" id="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">비밀번호:</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">비밀번호 확인:</label>
-                    <input type="password" id="confirmPassword" required>
-                </div>
-                <div class="button-group">
-                    <button class="btn1" type="submit">회원가입</button>
-                    <button class="btn1" type="button" onclick="showHome()">홈으로</button>
-                </div>
+                <table>
+                    <tr id="tabletr-id">
+                        <th><label for="id">아이디:</label></th>
+                        <td><input type="text" id="id" class="input-field" required></td>
+                        <td><button type="button" id="idCheckBtn" class="btn1" onclick="checkId()">중복 확인</button></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td class="backtext" colspan="2">영문소문자/숫자,4~16자</td>
+                    </tr>
+                    <tr class="tabletr-pw">
+                        <th><label for="password">비밀번호:</label></th>
+                        <td><input type="password" id="password" class="input-field" required></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td class="backtext" colspan="2">영문 대소문자/숫자/특수문자 2가지 이상 조합,4~16자</td>
+                    </tr>
+                    <tr class="tabletr-pw">
+                        <th><label for="confirmPassword">비밀번호 확인:</label></th>
+                        <td><input type="password" id="confirmPassword" class="input-field" required></td>
+                        <td><span id="passwordMessage" class="message"></span></td>
+                    </tr>
+                    <tr id="tabletr-name">
+                        <th><label for="name">이 름:</label></th>
+                        <td><input type="text" id="name" class="input-field" required></td>
+                    </tr>
+                    <tr id="tabletr-phone">
+                        <th><label for="phone">전화번호:</label></th>
+                        <td>
+                            <input type="tell" id="phone1" maxlength="3" placeholder="000" placeholder="000" class="input-small">-
+                            <input type="tell" id="phone2" maxlength="4" placeholder="0000" class="input-small">-
+                            <input type="tell" id="phone3" maxlength="4" placeholder="0000" class="input-small">
+                        </td>
+                    </tr>
+                    <tr id="tabletr-email">
+                        <th><label for="email">이메일:</label></th>
+                        <td><input type="email" id="email" class="input-field" required></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td colspan="3" class="button-group">
+                            <button class="btn1" type="submit">회원가입</button>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </section>
     `,
@@ -116,9 +150,95 @@ function showLogin() {
     history.pushState({ page: 'login' }, '로그인', window.location.href);
 }
 
+async function handleLogin(event) {
+    event.preventDefault();
+
+    const id = document.getElementById('id').value;
+    const password = document.getElementById('password').value;
+
+    const formData = { id, password };
+
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            alert('로그인 성공!');
+            showHome();
+        } else {
+            alert('로그인 실패. 아이디 또는 비밀번호를 확인해주세요.');
+        }
+    } catch (error) {
+        console.error('에러 발생:', error);
+        alert('서버와의 연결 중 문제가 발생했습니다.');
+    }
+}
+
 function showSignup() {
     document.getElementById('app').innerHTML = pages.signup;
     history.pushState({ page: 'signup' }, '회원가입', window.location.href);
+}
+
+async function checkId() {
+    const id = document.getElementById('id').value;
+    
+    if (!id) {
+        alert('아이디를 입력해주세요.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/check-id?id=${id}`);
+        const data = await response.json();
+
+        if (data.exists) {
+            alert('이미 사용 중인 아이디입니다.');
+        } else {
+            alert('사용 가능한 아이디입니다.');
+        }
+    } catch (error) {
+        console.error('아이디 중복 확인 오류:', error);
+        alert('아이디 중복 확인에 실패했습니다.');
+    }
+}
+
+async function handleSignup(event) {
+    event.preventDefault();
+
+    const id = document.getElementById('id').value;
+    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value;
+    const phone =
+        document.getElementById('phone1').value + '-' +
+        document.getElementById('phone2').value + '-' +
+        document.getElementById('phone3').value;
+
+    const formData = { id, password, email, phone };
+
+    try {
+        const response = await fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            alert('회원가입 성공!');
+            showHome();
+        } else {
+            alert('회원가입 실패. 다시 시도해주세요.');
+        }
+    } catch (error) {
+        console.error('에러 발생:', error);
+        alert('서버와의 연결 중 문제가 발생했습니다.');
+    }
 }
 
 //소개 페이지
@@ -131,22 +251,6 @@ function showIntro() {
 function showStep() {
     document.getElementById('app').innerHTML = pages.step;
     history.pushState({ page: 'step' }, '분양 절차', window.location.href);
-}
-
-function handleLogin(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    alert(`로그인 성공! 사용자 이름: ${username}`);
-    showHome();
-}
-
-function handleSignup(event) {
-    event.preventDefault(); 
-    const newUsername = document.getElementById('newUsername').value;
-    const newPassword = document.getElementById('newPassword').value;
-    alert(`회원가입 성공! 사용자 이름: ${newUsername}`);
-    showHome();
 }
 
 showHome();
