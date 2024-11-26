@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고양이 사랑방</title> 
-    <link rel="stylesheet" href="style.css"> <!-- CSS 파일 링크 -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -16,12 +16,12 @@
             <a href="https://section.cafe.naver.com" target="_blank"><i class="fa-solid fa-mug-saucer"></i></a>
         </div>
         <div class="header-buttons">
-            <button onclick="showLogin()">로그인</button> <!-- 로그인 버튼 -->
-            <button onclick="showSignup()">회원가입</button> <!-- 회원가입 버튼 -->
+            <button onclick="showLogin()">로그인</button>
+            <button onclick="showSignup()">회원가입</button>
         </div>
         <div class="header-serchInput">
-            <input type="text" id="searchInput" placeholder="검색어 입력" />
-            <button onclick="handleSearch()">검색</button> <!-- 검색 버튼 -->
+            <input type="text" id="searchInput" placeholder=" 검색어 입력" />
+            <button onclick="handleSearch()">검색</button>
         </div>
     </header>
     
@@ -54,18 +54,19 @@
             <b>고양이 분양</b>
                 <div class="adoption-dropdown">
                     <b>
-                        <a href="#">먼치킨</a>
-                        <a href="#">스코티쉬폴드</a>
-                        <a href="#">브리티쉬숏헤어</a>
-                        <a href="#">아비시니안</a>
-                        <a href="#">아메리칸숏헤어</a>
-                        <a href="#">렉돌</a>
-                        <a href="#">노르웨이숲</a>
-                        <a href="#">페르시안</a>
-                        <a href="#">레이상블루/샴</a>
-                        <a href="#">뱅갈</a>
-                        <a href="#">메인쿤</a>
-                        <a href="#">특수묘</a>
+                        <a href="#" onclick="showMunchkin()">먼치킨</a>
+                        <a href="#" onclick="showScottishFold()">스코티쉬폴드</a>
+                        <a href="#" onclick="showBritishShorthair()">브리티쉬숏헤어</a>
+                        <a href="#" onclick="showAbyssinian()">아비시니안</a>
+                        <a href="#" onclick="showAmericanShorthair()">아메리칸숏헤어</a>
+                        <a href="#" onclick="showRagdoll()">렉돌</a>
+                        <a href="#" onclick="showNorwegianForest()">노르웨이숲</a>
+                        <a href="#" onclick="showPersian()">페르시안</a>
+                        <a href="#" onclick="showRussianBlueOrSiamese()">레이상블루/샴</a>
+                        <a href="#" onclick="showBengal()">뱅갈</a>
+                        <a href="#" onclick="showMaineCoon()">메인쿤</a>
+                        <a href="#" onclick="showSpecial()">특수묘</a>
+
                     </b>
                 </div>
         </div>
@@ -120,6 +121,6 @@
 
     </footer>
 
-    <script src="script.js"></script> <!-- JavaScript 파일 링크 -->
+    <script src="script.js"></script>
 </body>
 </html>
