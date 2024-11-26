@@ -342,7 +342,7 @@ footer {
     align-items: center;
     padding: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: 20px auto;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -394,6 +394,44 @@ footer {
     width: 100%;
     margin-top: 20px;
 }
+
+#signupForm, #loginForm {
+    text-align: left;
+}
+
+#signupForm th #loginForm th{
+    width: 150px;
+}
+
+#tabletr-id input[type="text"], .tabletr-pw input[type="password"], #tabletr-name input[type="text"], #tabletr-email input[type="email"]{
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    transition: border 0.3s ease;
+}
+
+#tabletr-phone input[type="tell"] {
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    width: 40px;
+    transition: border 0.3s ease;
+    text-align: center;
+}
+
+.backtext {
+    color: #a4a4a4;
+    font-size: 1rem;
+}
+
+
+
 
 .btn1 {
     background-color: #ffaa9d;
