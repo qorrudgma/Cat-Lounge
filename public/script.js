@@ -192,8 +192,14 @@ async function checkId() {
         return;
     }
 
+    const idRegex = /^[a-z0-9]{4,16}$/;
+    if (!idRegex.test(id)) {
+        alert('아이디는 영문 소문자와 숫자만 포함하며, 4~16자여야 합니다.');
+        return;
+    }
+
     try {
-        const response = await fetch(`/api/check-id?id=${id}`);
+        const response = await fetch(`/api/check-id?id=${encodeURIComponent(id)}`);
         const data = await response.json();
 
         if (data.exists) {
@@ -203,7 +209,7 @@ async function checkId() {
         }
     } catch (error) {
         console.error('아이디 중복 확인 오류:', error);
-        alert('아이디 중복 확인에 실패했습니다.');
+        alert('아이디 중복 확인 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.');
     }
 }
 
@@ -212,16 +218,40 @@ async function handleSignup(event) {
 
     const id = document.getElementById('id').value;
     const password = document.getElementById('password').value;
-    const email = document.getElementById('email').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const name = document.getElementById('name').value;
     const phone =
         document.getElementById('phone1').value + '-' +
         document.getElementById('phone2').value + '-' +
         document.getElementById('phone3').value;
+    const email = document.getElementById('email').value;
 
-    const formData = { id, password, email, phone };
+    if (!id || !password || !confirmPassword || !name || !phone || !email) {
+        alert('모든 필드를 입력해주세요.');
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+        return;
+    }
+
+    if (password.length < 8) {
+        alert('비밀번호는 8자 이상이어야 합니다.');
+        return;
+    }
+
+    const formData = { id, password, name, phone, email };
 
     try {
-        const response = await fetch('/api/signup', {
+        const idResponse = await fetch(`/api/check-id?id=${id}`);
+        const idData = await idResponse.json();
+        if (idData.exists) {
+            alert('이미 사용 중인 아이디입니다.');
+            return;
+        }
+
+        const response = await fetch('http://localhost:3000/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -236,8 +266,10 @@ async function handleSignup(event) {
             alert('회원가입 실패. 다시 시도해주세요.');
         }
     } catch (error) {
-        console.error('에러 발생:', error);
-        alert('서버와의 연결 중 문제가 발생했습니다.');
+        console.error('에러 상세:', error);
+        const errorMessage = error.message ? error.message : '알 수 없는 오류';
+        
+        alert(`서버와의 연결 중 문제가 발생했습니다: ${errorMessage}`);
     }
 }
 
