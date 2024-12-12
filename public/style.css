@@ -8,7 +8,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    height: 100vh;
+    height: auto;
     margin: 0;
 }
 
@@ -133,6 +133,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    overflow: visible;
 }
 
 .manus .spacing {
@@ -142,7 +143,7 @@ header {
 
 .manus-catlaunge, .manus-adoption, .manus-foster, .manus-community, .manus-announcements {
     flex: 1.2;
-    position: relative;
+    position: sticky;
     cursor: pointer;
 
 }
@@ -430,9 +431,6 @@ footer {
     font-size: 1rem;
 }
 
-
-
-
 .btn1 {
     background-color: #ffaa9d;
     color: white;
@@ -447,4 +445,53 @@ footer {
 .btn1:hover {
     background-color: #f8d7da;
     color: #d57b6e;
+}
+
+.adoption-list {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.adoption-list-ul {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 30px 0;
+}
+
+.adoption-list-ul li {
+    position: relative; /* 위치 설정 */
+    overflow: hidden; /* 이미지가 리스트 밖으로 넘치지 않도록 */
+    border: 1px solid #ddd;
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 포인터 표시 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 애니메이션 */
+}
+
+.adoption-list-ul li:hover {
+    transform: translateY(-3px); /* 3px 위로 이동 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+.adoption-list-ul li img {
+    width: 100%; /* 이미지가 리스트의 너비를 채우도록 */
+    height: auto; /* 비율 유지 */
+    display: block;
+    border-radius: 5px; /* 이미지도 둥글게 */
+}
+
+.adoption-list-ul li a {
+    display: block; /* 링크 전체가 클릭 가능하도록 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.adoption-list-ul li a img {
+    transition: opacity 0.3s ease; /* 호버 시 애니메이션 추가 가능 */
+}
+
+.adoption-list-ul li:hover a img {
+    opacity: 0.9; /* 마우스 호버 시 약간 투명하게 */
 }

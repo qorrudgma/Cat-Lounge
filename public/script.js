@@ -12,12 +12,72 @@ const pages = {
             <div class="adoption">
                 분양
             </div>
+            <div class="adoption-list">
+                <ul class="adoption-list-ul">
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="<%= cat.image_url %>" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat2.jpg" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat3.jpg" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat4.jpg" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat5.jpg" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat6.jpg" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat7.jpg" alt="고양이">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="cat/cat8.jpg" alt="고양이">
+                        </a>
+                    </li>
+                </ul>
+                <button class="btn1" type="submit" aria-label="더 많은 고양이 사진 보기">더보기</button>
+            </div>
         </section>
         <section class="main-stories ">
             <div class="line"></div>
             <div class="stories ">
                 분양 후기
             </div>
+                <ul class="story-list">
+                    <li>
+                        <img src="story1.jpg" alt="고양이 후기 1">
+                        <p>이 고양이는 정말 사랑스럽고 집 분위기를 밝게 해줍니다!</p>
+                    </li>
+                    <li>
+                        <img src="story2.jpg" alt="고양이 후기 2">
+                        <p>분양 후 처음 며칠은 낯설어했지만, 지금은 너무 잘 적응했어요!</p>
+                    </li>
+                    <li>
+                        <img src="story3.jpg" alt="고양이 후기 3">
+                        <p>고양이와 함께한 시간이 정말 행복합니다. 적극 추천해요!</p>
+                    </li>
+                </ul>
+                <button class="btn1" type="submit" aria-label="더 많은 후기 보기">더보기</button>
         </section>
         <section class="main-foster">
             <div class="line"></div>
@@ -297,3 +357,34 @@ function handleSearch() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    fetchCats();  // 고양이 데이터를 가져오는 함수 호출
+  });
+  
+  async function fetchCats() {
+    try {
+      const response = await fetch('http://localhost:3000/api/cats');
+      const cats = await response.json();
+  
+      const adoptionListUl = document.getElementById('adoption-list-ul');
+      adoptionListUl.innerHTML = '';  // 기존 리스트 초기화
+  
+      cats.forEach(cat => {
+        // 고양이 이미지가 담긴 <li> 요소 생성
+        const listItem = document.createElement('li');
+        const anchorTag = document.createElement('a');
+        anchorTag.setAttribute('href', ''); // 링크를 원하는 URL로 설정
+        anchorTag.setAttribute('target', '_blank');
+        
+        const imgTag = document.createElement('img');
+        imgTag.setAttribute('src', cat.image_url);  // 고양이 이미지 URL 설정
+        imgTag.setAttribute('alt', '고양이');
+        
+        anchorTag.appendChild(imgTag);
+        listItem.appendChild(anchorTag);
+        adoptionListUl.appendChild(listItem);  // <ul>에 <li> 추가
+      });
+    } catch (error) {
+      console.error('고양이 데이터를 가져오는 데 실패했습니다:', error);
+    }
+  }  
